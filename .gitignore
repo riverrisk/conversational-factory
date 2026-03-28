@@ -1,0 +1,14 @@
+# OS files
+.DS_Store
+
+# Logs
+*.log
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+coverage/
+target/

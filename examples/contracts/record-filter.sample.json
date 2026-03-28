@@ -1,0 +1,9 @@
+{
+  "q": "rockwell conveyor zone3",
+  "node_kind": "device",
+  "vendor": "rockwell",
+  "site": "Milwaukee",
+  "zone": "Zone3",
+  "work_center": "Cell5",
+  "class": "vfd"
+}

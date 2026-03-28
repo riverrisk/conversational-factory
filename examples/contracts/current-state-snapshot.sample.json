@@ -1,0 +1,25 @@
+{
+  "asset": {
+    "device_id": "22222222-2222-7222-8222-222222222222",
+    "fqdn": "DriveVFD.Conveyor.Cell5.Zone3.Milwaukee.local"
+  },
+  "captured_at": "2026-03-28T08:05:00Z",
+  "signals": [
+    {
+      "name": "motor_temperature",
+      "value": 86.2,
+      "unit": "C",
+      "quality": "good",
+      "source": "ethernet-ip",
+      "observed_at": "2026-03-28T08:04:58Z"
+    },
+    {
+      "name": "speed_percent",
+      "value": 82.0,
+      "unit": "%",
+      "quality": "good",
+      "source": "ethernet-ip",
+      "observed_at": "2026-03-28T08:04:58Z"
+    }
+  ]
+}

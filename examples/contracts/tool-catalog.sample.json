@@ -1,0 +1,27 @@
+{
+  "server_name": "conversational-factory-mcp",
+  "version": "0.1.0",
+  "tools": [
+    {
+      "name": "resolve_asset",
+      "description": "Resolve a single asset by FQDN, IP, alias, or identity.",
+      "input_schema": "schemas/query-plane/v1/resolve-target.schema.json",
+      "output_schema": "schemas/assets/v1/semantic-record.schema.json",
+      "read_only": true
+    },
+    {
+      "name": "query_assets",
+      "description": "Search semantic assets with ISA-95 and identity filters.",
+      "input_schema": "schemas/query-plane/v1/record-filter.schema.json",
+      "output_schema": "schemas/query-plane/v1/query-records-response.schema.json",
+      "read_only": true
+    },
+    {
+      "name": "ask_factory",
+      "description": "Execute a conversational query against read-only semantic asset context.",
+      "input_schema": "schemas/gateway/v1/gateway-request.schema.json",
+      "output_schema": "schemas/gateway/v1/gateway-response.schema.json",
+      "read_only": true
+    }
+  ]
+}

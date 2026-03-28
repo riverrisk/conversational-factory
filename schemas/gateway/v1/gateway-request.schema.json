@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.conversational-factory.local/gateway/v1/gateway-request.schema.json",
+  "title": "Conversational Query Request",
+  "description": "Parent-repo proposal for a conversational-gateway request envelope over semantic assets and the segmented UNS query plane.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "request_id",
+    "intent"
+  ],
+  "properties": {
+    "request_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "intent": {
+      "type": "string",
+      "enum": [
+        "resolve-asset",
+        "query-assets",
+        "describe-topology",
+        "summarize-assets"
+      ]
+    },
+    "natural_language_query": {
+      "type": "string",
+      "description": "Original user utterance when the request comes from a conversational client."
+    },
+    "target": {
+      "$ref": "../../query-plane/v1/resolve-target.schema.json"
+    },
+    "filter": {
+      "$ref": "../../query-plane/v1/record-filter.schema.json"
+    },
+    "include_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "response_mode": {
+      "type": "string",
+      "enum": [
+        "records-only",
+        "summary-only",
+        "summary-and-records"
+      ],
+      "default": "summary-and-records"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "intent": {
+            "const": "resolve-asset"
+          }
+        },
+        "required": [
+          "intent"
+        ]
+      },
+      "then": {
+        "required": [
+          "target"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "intent": {
+            "enum": [
+              "query-assets",
+              "describe-topology",
+              "summarize-assets"
+            ]
+          }
+        },
+        "required": [
+          "intent"
+        ]
+      },
+      "then": {
+        "required": [
+          "filter"
+        ]
+      }
+    }
+  ]
+}

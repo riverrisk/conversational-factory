@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.conversational-factory.local/state/v1/current-state-snapshot.schema.json",
+  "title": "Current State Snapshot",
+  "description": "Parent-repo proposal for the latest known operational state associated with a semantic asset.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "asset",
+    "captured_at",
+    "signals"
+  ],
+  "properties": {
+    "asset": {
+      "$ref": "../../assets/v1/asset-reference.schema.json"
+    },
+    "captured_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "signals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "value"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "value": {},
+          "unit": {
+            "type": "string"
+          },
+          "quality": {
+            "type": "string",
+            "enum": [
+              "good",
+              "uncertain",
+              "bad"
+            ]
+          },
+          "source": {
+            "type": "string"
+          },
+          "observed_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    }
+  }
+}

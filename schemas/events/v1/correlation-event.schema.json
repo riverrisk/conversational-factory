@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.conversational-factory.local/events/v1/correlation-event.schema.json",
+  "title": "Correlation Event",
+  "description": "Parent-repo proposal for a derived event produced by the correlation engine.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "correlation_id",
+    "detected_at",
+    "kind",
+    "summary",
+    "related_assets"
+  ],
+  "properties": {
+    "correlation_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "detected_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "thermal-cluster",
+        "repeated-stop-pattern",
+        "communication-loss",
+        "anomalous-behavior",
+        "custom"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "info",
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "related_assets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "../../assets/v1/asset-reference.schema.json"
+      }
+    },
+    "evidence_event_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "attributes": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

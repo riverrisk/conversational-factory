@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.conversational-factory.local/events/v1/historian-event.schema.json",
+  "title": "Historian Event",
+  "description": "Parent-repo proposal for a normalized event persisted by the historian layer.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "asset",
+    "kind",
+    "observed_at"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "asset": {
+      "$ref": "../../assets/v1/asset-reference.schema.json"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "telemetry-sample",
+        "state-change",
+        "alarm",
+        "protocol-event",
+        "network-event"
+      ]
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "type": "string"
+    },
+    "metric": {
+      "type": "string"
+    },
+    "value": {},
+    "previous_value": {},
+    "unit": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "info",
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "message": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "attributes": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "device_id": "22222222-2222-7222-8222-222222222222",
+  "fqdn": "DriveVFD.Conveyor.Cell5.Zone3.Milwaukee.local",
+  "node_kind": "device",
+  "external_ip": "10.50.3.47",
+  "internal_ip": "192.168.1.47",
+  "class": "vfd",
+  "vendor": "rockwell",
+  "model": "PowerFlex525",
+  "protocols": [
+    "ethernet-ip",
+    "modbus-tcp"
+  ],
+  "mac": "00:00:BC:12:34:56",
+  "switch_port": "Gi1/0/5",
+  "site": "Milwaukee",
+  "facility": "Milwaukee",
+  "area": "Zone3",
+  "zone": "Zone3",
+  "work_center": "Cell5",
+  "cell": "Cell5",
+  "work_center_kind": "process-cell",
+  "work_unit": "Conveyor",
+  "process": "Conveyor",
+  "function": "DriveVFD",
+  "hardware_identities": [
+    {
+      "kind": "mac-address",
+      "value": "00:00:BC:12:34:56",
+      "label": "primary-nic"
+    }
+  ],
+  "application_identities": [
+    {
+      "kind": "urn",
+      "value": "urn:factory:asset:drivevfd-cell5-conveyor",
+      "label": "cmms-asset"
+    }
+  ],
+  "aliases": [
+    "ConveyorVFD5"
+  ],
+  "relations": [
+    {
+      "relation": "located-in",
+      "target": "Conveyor.Cell5.Zone3.Milwaukee.local",
+      "label": "work-unit"
+    }
+  ],
+  "status": "active",
+  "updated_at": "2026-03-28T08:00:00Z",
+  "field_sources": {
+    "vendor": {
+      "value": "rockwell",
+      "source": "protocol-analysis",
+      "updated_at": "2026-03-28T08:00:00Z"
+    },
+    "class": {
+      "value": "vfd",
+      "source": "protocol-analysis",
+      "updated_at": "2026-03-28T08:00:00Z"
+    },
+    "site": {
+      "value": "Milwaukee",
+      "source": "manual-api",
+      "updated_at": "2026-03-28T08:00:00Z"
+    },
+    "area": {
+      "value": "Zone3",
+      "source": "manual-api",
+      "updated_at": "2026-03-28T08:00:00Z"
+    },
+    "work_center": {
+      "value": "Cell5",
+      "source": "manual-api",
+      "updated_at": "2026-03-28T08:00:00Z"
+    },
+    "work_unit": {
+      "value": "Conveyor",
+      "source": "manual-api",
+      "updated_at": "2026-03-28T08:00:00Z"
+    },
+    "function": {
+      "value": "DriveVFD",
+      "source": "manual-api",
+      "updated_at": "2026-03-28T08:00:00Z"
+    }
+  }
+}

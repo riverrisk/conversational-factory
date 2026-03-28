@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.conversational-factory.local/assets/v1/semantic-record.schema.json",
+  "title": "Semantic Record",
+  "description": "Normalized semantic asset record derived from semantic-dns.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "device_id",
+    "fqdn",
+    "node_kind",
+    "protocols",
+    "hardware_identities",
+    "application_identities",
+    "aliases",
+    "relations",
+    "status",
+    "updated_at",
+    "field_sources"
+  ],
+  "properties": {
+    "device_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "fqdn": {
+      "type": "string",
+      "minLength": 1
+    },
+    "node_kind": {
+      "$ref": "../../common/v1/identity-surfaces.schema.json#/$defs/isa95NodeKind"
+    },
+    "external_ip": {
+      "type": "string"
+    },
+    "internal_ip": {
+      "type": "string"
+    },
+    "class": {
+      "type": "string"
+    },
+    "vendor": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "protocols": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mac": {
+      "type": "string"
+    },
+    "switch_port": {
+      "type": "string"
+    },
+    "enterprise": {
+      "type": "string"
+    },
+    "site": {
+      "type": "string"
+    },
+    "area": {
+      "type": "string"
+    },
+    "work_center": {
+      "type": "string"
+    },
+    "work_center_kind": {
+      "$ref": "../../common/v1/identity-surfaces.schema.json#/$defs/isa95WorkCenterKind"
+    },
+    "work_unit": {
+      "type": "string"
+    },
+    "facility": {
+      "type": "string"
+    },
+    "zone": {
+      "type": "string"
+    },
+    "cell": {
+      "type": "string"
+    },
+    "process": {
+      "type": "string"
+    },
+    "function": {
+      "type": "string"
+    },
+    "hardware_identities": {
+      "type": "array",
+      "items": {
+        "$ref": "../../common/v1/identity-surfaces.schema.json#/$defs/hardwareIdentity"
+      }
+    },
+    "application_identities": {
+      "type": "array",
+      "items": {
+        "$ref": "../../common/v1/identity-surfaces.schema.json#/$defs/applicationIdentity"
+      }
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "$ref": "../../common/v1/identity-surfaces.schema.json#/$defs/semanticRelation"
+      }
+    },
+    "status": {
+      "$ref": "../../common/v1/identity-surfaces.schema.json#/$defs/recordStatus"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "field_sources": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "../../common/v1/identity-surfaces.schema.json#/$defs/metadataField"
+      }
+    }
+  }
+}

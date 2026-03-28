@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.conversational-factory.local/query-plane/v1/resolve-target.schema.json",
+  "title": "Resolve Target",
+  "description": "Target string that can resolve to a semantic record by FQDN, IP, alias, hardware identity, or application identity within the segmented query plane.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "target"
+  ],
+  "properties": {
+    "target": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

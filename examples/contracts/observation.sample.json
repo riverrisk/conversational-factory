@@ -1,0 +1,49 @@
+{
+  "id": "11111111-1111-7111-8111-111111111111",
+  "device_id": "22222222-2222-7222-8222-222222222222",
+  "observed_at": "2026-03-28T08:00:00Z",
+  "source": "protocol-analysis",
+  "node_kind": "device",
+  "external_ip": "10.50.3.47",
+  "internal_ip": "192.168.1.47",
+  "class": "vfd",
+  "vendor": "rockwell",
+  "model": "PowerFlex525",
+  "protocols": [
+    "ethernet-ip",
+    "modbus-tcp"
+  ],
+  "mac": "00:00:BC:12:34:56",
+  "switch_port": "Gi1/0/5",
+  "site": "Milwaukee",
+  "area": "Zone3",
+  "work_center": "Cell5",
+  "work_center_kind": "process-cell",
+  "work_unit": "Conveyor",
+  "function": "DriveVFD",
+  "hardware_identities": [
+    {
+      "kind": "mac-address",
+      "value": "00:00:BC:12:34:56",
+      "label": "primary-nic"
+    }
+  ],
+  "application_identities": [
+    {
+      "kind": "urn",
+      "value": "urn:factory:asset:drivevfd-cell5-conveyor",
+      "label": "cmms-asset"
+    }
+  ],
+  "aliases": [
+    "ConveyorVFD5"
+  ],
+  "relations": [
+    {
+      "relation": "located-in",
+      "target": "Conveyor.Cell5.Zone3.Milwaukee.local",
+      "label": "work-unit"
+    }
+  ],
+  "status": "active"
+}

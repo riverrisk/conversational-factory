@@ -1,0 +1,25 @@
+{
+  "correlation_id": "55555555-5555-7555-8555-555555555555",
+  "detected_at": "2026-03-28T08:06:00Z",
+  "kind": "thermal-cluster",
+  "summary": "Three conveyor drives in Zone3 are running above expected temperature together.",
+  "severity": "medium",
+  "related_assets": [
+    {
+      "fqdn": "DriveVFD.Conveyor.Cell5.Zone3.Milwaukee.local"
+    },
+    {
+      "fqdn": "DriveVFD.Conveyor.Cell6.Zone3.Milwaukee.local"
+    },
+    {
+      "fqdn": "DriveVFD.Conveyor.Cell7.Zone3.Milwaukee.local"
+    }
+  ],
+  "evidence_event_ids": [
+    "44444444-4444-7444-8444-444444444444"
+  ],
+  "attributes": {
+    "temperature_threshold_c": 80,
+    "asset_count": 3
+  }
+}

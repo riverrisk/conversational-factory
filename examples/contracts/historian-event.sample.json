@@ -1,0 +1,22 @@
+{
+  "event_id": "44444444-4444-7444-8444-444444444444",
+  "asset": {
+    "device_id": "22222222-2222-7222-8222-222222222222",
+    "fqdn": "DriveVFD.Conveyor.Cell5.Zone3.Milwaukee.local"
+  },
+  "kind": "telemetry-sample",
+  "observed_at": "2026-03-28T08:04:58Z",
+  "source": "ethernet-ip",
+  "metric": "motor_temperature",
+  "value": 86.2,
+  "unit": "C",
+  "severity": "info",
+  "tags": [
+    "thermal",
+    "drive"
+  ],
+  "attributes": {
+    "register": "TempFeedback",
+    "sampling_interval_ms": 1000
+  }
+}

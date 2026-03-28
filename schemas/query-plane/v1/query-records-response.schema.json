@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.conversational-factory.local/query-plane/v1/query-records-response.schema.json",
+  "title": "Query Records Response",
+  "description": "Current semantic-dns query response shape. The segmented query plane currently returns a bare array of semantic records.",
+  "type": "array",
+  "items": {
+    "$ref": "../../assets/v1/semantic-record.schema.json"
+  }
+}

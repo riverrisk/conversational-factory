@@ -1,0 +1,12 @@
+{
+  "request_id": "33333333-3333-7333-8333-333333333333",
+  "intent": "query-assets",
+  "natural_language_query": "Show me all Rockwell conveyor drives in Zone 3.",
+  "filter": {
+    "vendor": "rockwell",
+    "class": "vfd",
+    "work_unit": "Conveyor",
+    "zone": "Zone3"
+  },
+  "response_mode": "summary-and-records"
+}

@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.conversational-factory.local/common/v1/identity-surfaces.schema.json",
+  "title": "Identity Surfaces",
+  "description": "Shared identity and enum contracts extracted from the semantic-dns domain model.",
+  "$defs": {
+    "observationSource": {
+      "type": "string",
+      "enum": [
+        "manual-api",
+        "protocol-analysis",
+        "switch-intelligence",
+        "dhcp-fingerprint",
+        "discovery",
+        "replacement-inference"
+      ]
+    },
+    "confidenceLevel": {
+      "type": "string",
+      "enum": [
+        "authoritative",
+        "high",
+        "medium",
+        "low"
+      ]
+    },
+    "recordStatus": {
+      "type": "string",
+      "enum": [
+        "active",
+        "released",
+        "expired",
+        "quarantined"
+      ]
+    },
+    "isa95NodeKind": {
+      "type": "string",
+      "enum": [
+        "site",
+        "area",
+        "work-center",
+        "work-unit",
+        "device"
+      ]
+    },
+    "isa95WorkCenterKind": {
+      "type": "string",
+      "enum": [
+        "process-cell",
+        "unit",
+        "production-line",
+        "work-cell",
+        "production-unit",
+        "storage-zone",
+        "storage-unit",
+        "work-center"
+      ]
+    },
+    "applicationIdentityKind": {
+      "type": "string",
+      "enum": [
+        "uni",
+        "urn"
+      ]
+    },
+    "hardwareIdentityKind": {
+      "type": "string",
+      "enum": [
+        "mac-address",
+        "serial-number",
+        "dhcp-client-id",
+        "x509-subject",
+        "x509-san-uri",
+        "x509-spki-sha256"
+      ]
+    },
+    "applicationIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "value"
+      ],
+      "properties": {
+        "kind": {
+          "$ref": "#/$defs/applicationIdentityKind"
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    },
+    "hardwareIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "value"
+      ],
+      "properties": {
+        "kind": {
+          "$ref": "#/$defs/hardwareIdentityKind"
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    },
+    "semanticRelation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "relation",
+        "target"
+      ],
+      "properties": {
+        "relation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    },
+    "metadataField": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "source",
+        "updated_at"
+      ],
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/observationSource"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

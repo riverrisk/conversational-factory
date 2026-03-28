@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.conversational-factory.local/gateway/v1/gateway-response.schema.json",
+  "title": "Conversational Query Response",
+  "description": "Parent-repo proposal for conversational-gateway responses grounded in semantic records returned by the segmented query plane.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "request_id",
+    "status"
+  ],
+  "properties": {
+    "request_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ok",
+        "not-found",
+        "invalid-request",
+        "error"
+      ]
+    },
+    "summary": {
+      "type": "string"
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "$ref": "../../assets/v1/semantic-record.schema.json"
+      }
+    },
+    "resolved_target": {
+      "type": "string"
+    },
+    "applied_filter": {
+      "$ref": "../../query-plane/v1/record-filter.schema.json"
+    },
+    "citations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "value"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "fqdn",
+              "application-identity",
+              "hardware-identity",
+              "alias"
+            ]
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

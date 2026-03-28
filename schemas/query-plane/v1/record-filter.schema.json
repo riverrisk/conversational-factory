@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.conversational-factory.local/query-plane/v1/record-filter.schema.json",
+  "title": "Record Filter",
+  "description": "Extracted from semantic-dns RecordFilter. Matches the current read-only query surface for the segmented UNS query plane.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "q": {
+      "type": "string",
+      "description": "Case-insensitive free-text search across FQDN, hierarchy labels, identities, aliases, relations, and model."
+    },
+    "node_kind": {
+      "$ref": "../../common/v1/identity-surfaces.schema.json#/$defs/isa95NodeKind"
+    },
+    "hardware_identity": {
+      "type": "string"
+    },
+    "application_id": {
+      "type": "string"
+    },
+    "alias": {
+      "type": "string"
+    },
+    "class": {
+      "type": "string"
+    },
+    "vendor": {
+      "type": "string"
+    },
+    "enterprise": {
+      "type": "string"
+    },
+    "site": {
+      "type": "string"
+    },
+    "area": {
+      "type": "string"
+    },
+    "work_center": {
+      "type": "string"
+    },
+    "work_center_kind": {
+      "$ref": "../../common/v1/identity-surfaces.schema.json#/$defs/isa95WorkCenterKind"
+    },
+    "work_unit": {
+      "type": "string"
+    },
+    "cell": {
+      "type": "string"
+    },
+    "zone": {
+      "type": "string"
+    }
+  }
+}

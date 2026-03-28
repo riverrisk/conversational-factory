@@ -1,0 +1,29 @@
+services:
+  query-plane:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    entrypoint: ["/usr/local/bin/query-plane"]
+    ports:
+      - "8090:8090"
+    environment:
+      PORT: "8090"
+      RUST_LOG: "info"
+      # Set SEMANTIC_DNS_URL to connect to a running semantic-dns instance.
+      # Omit to use built-in sample data.
+      # SEMANTIC_DNS_URL: "http://semantic-dns:8088"
+      # SEMANTIC_DNS_TOKEN: "semantic-admin-token"
+
+  conversational-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    entrypoint: ["/usr/local/bin/conversational-gateway"]
+    ports:
+      - "8091:8091"
+    environment:
+      PORT: "8091"
+      QUERY_PLANE_URL: "http://query-plane:8090"
+      RUST_LOG: "info"
+    depends_on:
+      - query-plane

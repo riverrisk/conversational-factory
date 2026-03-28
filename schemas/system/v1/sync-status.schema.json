@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.conversational-factory.local/system/v1/sync-status.schema.json",
+  "title": "Sync Status",
+  "description": "Extracted from semantic-dns SyncStatus.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "total_leases",
+    "dns_records_synced",
+    "pending_updates",
+    "failed_updates"
+  ],
+  "properties": {
+    "total_leases": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "dns_records_synced": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "pending_updates": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "failed_updates": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "last_reconciliation": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

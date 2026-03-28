@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.conversational-factory.local/assets/v1/asset-reference.schema.json",
+  "title": "Asset Reference",
+  "description": "Minimal reusable handle for referring to a semantic asset across historian, correlation, and conversational layers.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "device_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "fqdn": {
+      "type": "string"
+    },
+    "application_id": {
+      "type": "string"
+    },
+    "alias": {
+      "type": "string"
+    }
+  },
+  "anyOf": [
+    {
+      "required": [
+        "device_id"
+      ]
+    },
+    {
+      "required": [
+        "fqdn"
+      ]
+    },
+    {
+      "required": [
+        "application_id"
+      ]
+    },
+    {
+      "required": [
+        "alias"
+      ]
+    }
+  ]
+}
