@@ -49,7 +49,7 @@ This parent repo defines the shared architecture, schemas, and service boundarie
 The semantic naming and DNS/DHCP control-plane work is already underway in
 [`/Users/butterbones/semantic-dns`](/Users/butterbones/semantic-dns).
 
-That repository appears to cover much of the semantic registry foundation:
+That repository covers much of the semantic registry foundation:
 
 - ISA-95-aware naming
 - hardware and application identities
@@ -58,9 +58,6 @@ That repository appears to cover much of the semantic registry foundation:
 - DHCP lease, quarantine, and fingerprint workflows
 - audit trail and HTTP/WebSocket APIs
 - operator console
-
-This parent repo should treat `semantic-dns` as the current implementation of
-the semantic registry layer, not a hypothetical future component.
 
 ## Repository Layout
 
