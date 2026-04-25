@@ -4,6 +4,7 @@ members = [
     "services/shared",
     "services/query-plane",
     "services/conversational-gateway",
+    "services/discovery",
 ]
 
 [workspace.package]
@@ -15,6 +16,9 @@ license = "AGPL-3.0-only"
 cf-shared = { path = "services/shared" }
 axum = "0.8"
 chrono = { version = "0.4", features = ["serde"] }
+clap = { version = "4", features = ["derive", "env"] }
+dns-lookup = "2"
+ipnet = "2"
 reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
@@ -22,4 +26,4 @@ tokio = { version = "1", features = ["full"] }
 tower-http = { version = "0.6", features = ["cors", "trace"] }
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
-uuid = { version = "1", features = ["v4", "serde"] }
+uuid = { version = "1", features = ["v4", "v5", "serde"] }
