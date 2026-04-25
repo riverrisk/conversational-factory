@@ -73,7 +73,7 @@ This parent repo defines the shared architecture, schemas, and service boundarie
 
 ## Existing Workstream
 
-The semantic naming and DNS/DHCP control-plane work is already underway in
+The semantic naming and DNS/DHCP control-plane work lives in
 [`/Users/butterbones/semantic-dns`](/Users/butterbones/semantic-dns).
 
 That repository covers much of the semantic registry foundation:
@@ -86,21 +86,31 @@ That repository covers much of the semantic registry foundation:
 - audit trail and HTTP/WebSocket APIs
 - operator console
 
+The remaining services in this repo (`services/`) compose around that registry: a discovery service that feeds it observations, a read-only query plane that fronts it, and a conversational gateway that turns natural-language requests into query-plane calls.
+
 ## Repository Layout
 
 - `docs/` product, architecture, and repository guidance
 - `schemas/` shared data contracts for the segmented semantic layer, query plane, events, and conversational gateway
-- `services/` executable services such as discovery, registry, historian, segmented query plane, and conversational gateway
+- `services/` executable services — `shared` (contracts), `discovery`, `query-plane`, `conversational-gateway`
 - `examples/` sample assets, names, and query flows
 
-## First Build Targets
+## Build Status
 
-1. Asset inventory model
-2. Shared semantic naming contract extracted from `semantic-dns`
-3. Read-only segmented query-plane contract
-4. Observation contract for discovery-to-registry ingestion
-5. Minimal discovery service
-6. Minimal conversational gateway backed by sample data
+**Implemented in this repo:**
+
+- `services/shared` — Rust contract types (assets, identity, query, gateway, events, state, system)
+- `services/query-plane` — read-only HTTP query service over the semantic registry, with a `semantic-dns` upstream provider and a sample-data fallback
+- `services/conversational-gateway` — intent parser + tool catalog that maps conversational requests onto query-plane calls
+- `services/discovery` — TCP connect-scan over a CIDR, reverse-DNS via `dns-lookup`, ARP-cache enrichment, observations posted to `semantic-dns` (or stdout for dry-run)
+- Schemas extracted from `semantic-dns` for observation, semantic-record, identity surfaces, query filter/response, sync status
+
+**Next:**
+
+- Historian prototype emitting `historian-event` and deriving `current-state-snapshot`
+- Correlation worker emitting `correlation-event`
+- Active mDNS / SNMP / banner-grab probes (port from `~/fathomips/_active_probe.py`)
+- DPI dissector path — wire `marlinspike-dpi` once the discovery service has captured packets to feed it
 
 See [docs/product-thesis.md](/Users/butterbones/conversational-factory/docs/product-thesis.md),
 [docs/system-architecture.md](/Users/butterbones/conversational-factory/docs/system-architecture.md),

@@ -19,15 +19,16 @@ This repository is the parent workspace for the core Conversational Factory plat
 
 ## Suggested Near-Term Additions
 
-- `schemas/assets/`
-- `schemas/events/`
-- `schemas/query-plane/`
-- `schemas/gateway/`
-- `services/discovery/`
-- `services/registry/`
+Already in place:
+
+- `schemas/assets/`, `schemas/events/`, `schemas/query-plane/`, `schemas/gateway/`
+- `services/shared/`, `services/discovery/`, `services/query-plane/`, `services/conversational-gateway/`
+
+Still to add:
+
+- `services/registry/` (or a thin shim around `~/semantic-dns`)
 - `services/historian/`
-- `services/query-plane/`
-- `services/conversational-gateway/`
+- `services/correlation/`
 - `examples/facility-a/`
 
 ## Working Conventions

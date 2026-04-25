@@ -26,6 +26,13 @@ Outputs:
 - confidence scores
 - topology hints
 
+Current implementation note:
+- `services/discovery` provides a minimal active-probe path: TCP connect-scan
+  over a CIDR, reverse DNS via `dns-lookup`, and ARP-cache enrichment for MAC
+  addresses. Observations are posted to `semantic-dns` (or stdout for dry-run).
+  Active mDNS/SNMP/banner-grab probes and a passive-capture/DPI path are
+  planned follow-ups.
+
 ### 2. Semantic Registry
 
 Purpose:

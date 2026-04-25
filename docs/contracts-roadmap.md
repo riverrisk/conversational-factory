@@ -41,13 +41,15 @@ Together these describe two higher-level capabilities:
 
 ## Recommended Implementation Order
 
-1. Add a small query service that exposes the extracted query contracts against
-   `semantic-dns`.
-2. Add a minimal conversational gateway that maps tool or conversational requests into
-   `record-filter` and `resolve-target`.
-3. Add a historian prototype that emits `historian-event` and derives
+1. ~~Add a small query service that exposes the extracted query contracts against
+   `semantic-dns`.~~ Implemented in `services/query-plane`.
+2. ~~Add a minimal conversational gateway that maps tool or conversational requests into
+   `record-filter` and `resolve-target`.~~ Implemented in `services/conversational-gateway`.
+3. ~~Add a discovery service that produces `observation` records and posts them to
+   the registry.~~ Implemented in `services/discovery` (TCP probe + reverse DNS + ARP).
+4. Add a historian prototype that emits `historian-event` and derives
    `current-state-snapshot`.
-4. Add a first correlation worker that emits `correlation-event`.
+5. Add a first correlation worker that emits `correlation-event`.
 
 ## Practical Rule
 

@@ -32,11 +32,21 @@ Likely parent-repo role:
 ### Discovery
 
 Status:
-- concept defined here
-- implementation not yet established in this parent repo
+- minimal implementation exists in this repo
 
-Likely relationship:
-- should produce observations that can feed `semantic-dns`
+Workspace:
+- `services/discovery` — TCP connect-scan over a CIDR, reverse-DNS, ARP-cache enrichment, observations posted to `semantic-dns` or stdout
+
+Current capabilities:
+- per-host port probe with configurable port list and concurrency
+- reverse DNS via `dns-lookup` (populates `aliases`)
+- ARP scrape (populates `mac` and `hardware_identities`); MAC is preferred for stable `device_id` minting via UUID v5
+- pluggable sink: stdout or HTTP POST
+
+Known gaps:
+- no active mDNS / SNMP / banner-grab probes yet (port from `~/fathomips/_active_probe.py`)
+- no MAC OUI vendor enrichment yet
+- no DPI / passive capture path (deferred until raw-socket or pcap-input story)
 
 ### Historian
 
@@ -59,21 +69,27 @@ Likely relationship:
 ### Segmented Query Plane
 
 Status:
-- concept defined here
-- implementation not yet established in this parent repo
+- minimal implementation exists in this repo
 
-Likely relationship:
-- should expose read-only UNS-like access across segmented networks
-- should sit above semantic context and below any conversational tooling
+Workspace:
+- `services/query-plane`
+
+Current capabilities:
+- read-only HTTP service exposing `record-filter` and `resolve-target` against a pluggable `AssetProvider`
+- `UpstreamProvider` proxies to the `semantic-dns` HTTP API
+- `SampleProvider` returns a hand-built fleet for offline development
 
 ### Conversational Gateway
 
 Status:
-- concept defined here
-- implementation not yet established in this parent repo
+- minimal implementation exists in this repo
 
-Likely relationship:
-- should sit above the segmented query plane and semantic context, not replace them
+Workspace:
+- `services/conversational-gateway`
+
+Current capabilities:
+- intent parser and tool catalog that map conversational requests onto query-plane calls
+- summary formatter that returns grounded responses without acting as a source of truth
 
 ## Practical Implication
 
