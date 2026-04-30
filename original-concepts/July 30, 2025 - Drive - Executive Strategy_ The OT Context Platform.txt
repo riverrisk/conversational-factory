@@ -1,0 +1,39 @@
+﻿Executive Strategy: The OT Context Platform
+1. The Opportunity: A Convergence of Three Powerful Forces
+The industrial market is in a state of flux, creating a unique convergence of three powerful market forces that demand a new approach to operational data.
+1. The Foundational Need for Visibility: The reality on the plant floor is a battle for basic visibility. Most brownfield sites lack the fundamental network documentation needed to plan for modernization or security. Before any advanced project, they need a "Network Installed Base Evaluation" (IBE)—a definitive map of their assets, firmware, and connections.
+2. A Global Regulatory Wave: The IEC 62443 framework, along with Europe's NIS2 Directive and Cyber Resilience Act (CRA), now mandate this level of visibility. This transforms a best practice into a funded, legal necessity, creating immediate demand for provable compliance.
+3. The Emergence of AI & Loss Prevention: The push for advanced analytics, AI-driven troubleshooting, and data-backed loss prevention is no longer theoretical. These initiatives are creating a massive demand for clean, reliable, and context-rich data—a resource that is currently difficult and expensive to acquire.
+This creates a clear market gap for a platform that can solve all three challenges simultaneously.
+2. Our Solution: The First OT Context Platform
+We have developed a purpose-built edge platform that provides complete visibility into the operational network without ever putting it at risk.
+It is not a security enforcement tool or a firewall. It is a passive, context-aware data platform designed with the core OT principle of "do no harm." While its monitoring functions are strictly passive, it includes secure, user-initiated utilities to assist with initial setup, ensuring operational integrity. It is the only solution that captures and preserves the three essential layers of OT data: Operational Context, Raw Packet Data, and Parsed Protocol Data.
+Our platform provides the essential "who, what, and where" of the network, which then empowers security partners like DYNICS to provide the "how" of enforcement through micro-segmentation and SDN.
+3. The Value Proposition: What We Deliver
+We focus exclusively on what we do best: industrial protocols and data collection. This allows us to solve immediate, high-cost problems for our customers.
+* Enable Provable Compliance: We provide the immutable, contextual audit trail of all assets and data flows required to satisfy IEC 62443 and other emerging regulations.
+* Accelerate Troubleshooting: By providing engineers with full contextual data, we reduce the mean-time-to-resolution for complex operational issues from days to minutes.
+* Enable Real-Time Edge Intelligence: Perform alerting and monitoring directly at the cell, eliminating network latency and removing noisy diagnostic polling traffic from the core network.
+* Power Agentic AI: Our clean, contextual data is the perfect fuel for any Model-Context Protocol (MCP) or AI agent, transforming troubleshooting from a manual process into an automated capability.
+4. Empowering the Channel: The Technician's Toolkit
+The core of our go-to-market strategy is a portable version of our platform—a "Technician's Toolkit" that fits in a bag. This device is a hardware-accelerated Wireshark that understands industrial context, designed to be the indispensable tool for consultants, integrators, and advanced technicians. It is the engine for applying the IEC 62443 framework with the necessary "lens of practical application."
+Key Toolkit Features for IEC 62443 Audits:
+* Automated Discovery & Documentation:
+   * One-Click Asset Inventory: Instantly generates a rich inventory with manufacturer, model, firmware, and inferred role.
+   * Automated Communication Flow Mapping: Creates a visual map and detailed report of all network conversations, providing the exact data needed to define and document zones and conduits.
+   * "Snapshot" Report Generation: Exports the complete asset inventory and communication map into a formatted, time-stamped report that serves as verifiable audit evidence.
+* Live Analysis & Configuration Verification:
+   * Guided SPAN Port Configuration: An integrated utility that provides a simple, secure interface for the technician to set up the necessary SPAN/mirror port. By abstracting the vendor-specific CLI commands—initially supporting the widely-used Stratix family of switches—this feature dramatically reduces setup time and eliminates common configuration errors.
+   * Zero-Installation Terminal Access: An integrated, browser-based SSH client that allows a technician to securely access the command line of discovered devices directly from the toolkit's web GUI. This eliminates the need to install separate tools on locked-down laptops and provides a single, auditable point of access.
+   * Context-Rich Traffic Viewer: A real-time terminal that displays traffic as Cell2.Conveyor.HMI -> Cell3.Drive.VFD, making it immediately obvious if traffic is crossing intended boundaries.
+* Change Management & Baseline Comparison:
+   * Baseline "Delta" Reporting: Allows a technician to take an initial snapshot, monitor for a period, and automatically generate a report of all changes—new devices, disappeared devices, and new communication paths—providing concrete evidence of change control.
+5. Go-to-Market: A Channel-Powered Strategy
+Our strategy is to empower our channel of expert partners with the Technician's Toolkit to deliver high-value services and drive platform adoption.
+* Phase 1: Enable Consulting-Led Assessments & Rapid QA. We will equip trusted consultants with the Toolkit to offer a high-value "Network Installed Base Evaluation" service. This creates a powerful, low-friction entry into the market. Critically, this approach front-loads our quality assurance with a team of elite, third-party experts, providing rapid, iterative feedback from the field and ensuring the product evolves to solve real-world challenges.
+* Phase 2: Drive Platform Adoption. The insights from these assessments will create a clear business case for the end customer—from critical infrastructure to advanced manufacturing—to purchase a permanent platform for ongoing compliance and operational visibility.
+* Phase 3: Empower OEMs and Integrators. We will partner with OEMs to help them use our platform to meet emerging global standards like the CRA. This turns a regulatory burden into a competitive advantage for them and creates a new, scalable sales channel for us.
+6. The Business Model: Perpetual Value
+Our business model is built on trust and aligns with the long-term lifecycle of industrial assets. We do not sell subscriptions that can disable hardware.
+* Perpetual Core License: The customer purchases the edge hardware (either the portable Toolkit or the permanent platform) and a perpetual license for the core software. This platform will continue to perform its core functions forever.
+* Optional Annual Service: We will offer an optional, recurring "Interoperability & Maintenance Service." This provides regular updates to the platform's device fingerprinting libraries, protocol parsers, and MCP definitions. If a customer chooses not to renew, the platform continues to function perfectly with the last set of updates it received.

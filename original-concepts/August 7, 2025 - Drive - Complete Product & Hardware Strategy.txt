@@ -1,0 +1,45 @@
+﻿Complete Product & Hardware Strategy
+This document outlines a tiered product strategy for industrial data infrastructure, specifying the hardware, architecture, and pricing for each level. The strategy is built on a practical, two-platform approach, selecting the appropriate class of industrial-grade hardware for each role to balance cost, performance, and reliability.
+Hardware Platforms
+1. Cell Platform (Edge Devices)
+* Description: A cost-effective, fanless, industrial-grade computer based on an ARM processor. It is designed for reliability in typical industrial environments.
+* Example: OnLogic Factor 201 or similar.
+* Target Cost: ~$700 (fully configured).
+* Use Cases: All cell-level historian and semantic platform roles (Tiers 1-5).
+2. Zone Platform (Central Collector)
+* Description: A more powerful, fanless, industrial-grade computer based on an x86 processor (Intel Core i5 or equivalent). It is specified to handle higher processing, memory, and I/O loads for data aggregation.
+* Example: OnLogic MC510-55 or similar.
+* Key Specifications: Support for 32GB+ RAM and NVMe storage.
+* Target Cost: ~$1,300 - $2,000 (depending on final configuration).
+* Use Cases: Zone Data Collector (Tier 6).
+Product Tiers & Pricing
+Tier 1: Core Network Resilience Package (S)
+* Purpose: Foundational Semantic DNS & DHCP services for a single cell.
+* Architecture: Single unit.
+* Hardware: Cell Platform.
+* Target Retail Price: $599
+Tier 2: Standalone Network Resilience Package (SS)
+* Purpose: High-Availability (HA) Semantic DNS & DHCP services.
+* Architecture: Redundant pair in a failover cluster.
+* Hardware: Cell Platform (x2).
+* Target Retail Price: $999
+Tier 3: Standalone Enterprise Data Gateway (H)
+* Purpose: Secure, one-way data transfer from a single cell to the enterprise.
+* Architecture: Single dual-NIC server in an iDMZ configuration.
+* Hardware: Cell Platform.
+* Target Retail Price: $2,500
+Tier 4: Secure Enterprise Data Gateway (HH)
+* Purpose: High-Availability (HA) secure data transfer.
+* Architecture: Redundant pair of dual-NIC servers.
+* Hardware: Cell Platform (x2).
+* Target Retail Price: $4,500
+Tier 5: Unified Platform (HHS)
+* Purpose: A unified solution providing both HA data transfer (HH) and HA semantic services (SS).
+* Architecture: The HH hardware is leveraged to also run the SS software layer.
+* Hardware: Cell Platform (x2).
+* Target Retail Price: $5,000
+Tier 6: Zone Data Collector (ZDC)
+* Purpose: Central aggregation point for up to 50 cell historians.
+* Architecture: A central server polling distributed H/HH units, configured with higher RAM and storage capacity.
+* Hardware: Zone Platform.
+* Target Retail Price: $7,500

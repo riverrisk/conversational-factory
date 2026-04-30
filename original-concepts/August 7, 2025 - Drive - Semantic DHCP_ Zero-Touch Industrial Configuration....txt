@@ -1,0 +1,96 @@
+﻿Semantic DHCP: Zero-Touch Industrial Configuration
+Automate device commissioning from network to application layer using standard DHCP.
+The Problem
+Manual IP configuration is slow, prone to human error, and creates inconsistent network settings. Commissioning or replacing a device requires direct, hands-on configuration, increasing downtime and support costs.
+The Solution
+Semantic DHCP creates a "zero-touch" network:
+* Provides centralized and automated IP management.
+* Delivers the entire network context to each device.
+* Enables true plug-and-play functionality for any cell.
+Automated Provisioning Architecture
+A dedicated DHCP server within each machine cell manages a pool of IP addresses and delivers critical configuration options that automate device setup and DNS registration.
+// Cell 4 DHCP Server Configuration (dhcpd.conf example)
+
+// Define the IP, DNS server, and domain for this cell
+subnet 192.168.4.0 netmask 255.255.255.0 {
+ range 192.168.4.100 192.168.4.200;
+ option routers 192.168.4.1;
+ option domain-name-servers 192.168.4.2; // Points to the dedicated DNS/DHCP box
+ option domain-name "cell4.local";
+}
+
+// -- Standard Practice: Reserve IPs for all critical infrastructure --
+
+// Reservation for the dedicated DNS/DHCP Server itself
+host DnsDhcpSrv {
+ hardware ethernet 00:0A:95:9D:68:16;
+ fixed-address 192.168.4.2;
+}
+
+// Reservation for the Main PLC
+host MainPLC {
+ hardware ethernet 00:1B:63:84:45:E6;
+ fixed-address 192.168.4.10;
+}
+
+High Availability and Redundancy
+A single DHCP/DNS server can be a point of failure. The standard architecture for critical cells mitigates this risk by deploying a redundant pair of lightweight servers in a high-availability (HA) configuration.
+* Addresses Reliability Concerns: Eliminates the single point of failure, ensuring the cell remains operational even if one server fails.
+* Creates a Commercial Opportunity: This resilience is a value-add feature, allowing for an upsell to a "High-Availability Package."
+<!-- end list -->
+// Conceptual DHCP Failover Configuration
+
+failover peer "cell4-failover" {
+ primary;
+ address 192.168.4.2;
+ port 647;
+ peer address 192.168.4.3;
+ peer port 647;
+ max-response-delay 60;
+ max-unacked-updates 10;
+ load balance max seconds 3;
+ split 128;
+}
+
+// Include the failover peer in the subnet pool
+subnet 192.168.4.0 netmask 255.255.255.0 {
+ pool {
+   failover peer "cell4-failover";
+   range 192.168.4.100 192.168.4.200;
+ }
+ // ... other options
+}
+
+Application Layer Provisioning
+Beyond network settings, DHCP can deliver information for application-level configuration. This allows a device to automatically download its specific firmware or configuration file from a TFTP server upon booting.
+// Advanced configuration for an intelligent device
+
+host VisionSystem-1 {
+ hardware ethernet 00:0A:95:9D:68:16;
+ fixed-address 192.168.4.115;
+ option tftp-server-name "192.168.4.2"; // Point to firmware/config server
+ option bootfile-name "vision_sys_v1.2.conf"; // Specify the config file
+}
+
+Business Benefits
+OEM Machine Builders
+* Faster system commissioning and testing
+* Standardized, repeatable network configurations
+* Reduced on-site configuration errors
+* Simplified factory and site acceptance testing
+Plant Operations
+* Drastically reduced Mean Time To Repair (MTTR)
+* Consistent and enforceable network policies
+* Simplified troubleshooting and diagnostics
+* Elimination of IP address conflicts
+DHCP Standards Compliance
+* RFC 2131: Dynamic Host Configuration Protocol
+* RFC 2132: DHCP Options and BOOTP Vendor Extensions
+* Enables clients to perform updates per RFC 2136 (Dynamic Updates in the DNS)
+Value Proposition
+Enable fully automated, policy-driven device commissioning using standard network protocols.
+Traditional Approach
+	Semantic DHCP Approach
+	Manual IP Assignment → Per-Device Configuration → Inconsistent Settings
+	Automated IP/DNS Delivery → Centralized Cell Policy → Zero-Touch Commissioning
+	© 2025 Riverman Enterprises
