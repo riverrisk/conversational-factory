@@ -117,3 +117,9 @@ See [docs/product-thesis.md](/Users/butterbones/conversational-factory/docs/prod
 [docs/workstream-map.md](/Users/butterbones/conversational-factory/docs/workstream-map.md),
 and [docs/contracts-roadmap.md](/Users/butterbones/conversational-factory/docs/contracts-roadmap.md)
 for the cleaned-up concept and current implementation map.
+
+## License
+
+This work is licensed under [Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/). See [LICENSE](./LICENSE).
+
+Commercial use requires a separate written commercial license agreement. To request one, contact **river@riverman.io**.
