@@ -119,6 +119,6 @@ for the cleaned-up concept and current implementation map.
 
 ## License
 
-This work is licensed under [Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/). See [LICENSE](./LICENSE).
+This work is licensed under [Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/). See [LICENSE](./LICENSE) for the full text and [NOTICE](./NOTICE) for the copyright and commercial-licensing terms.
 
 Commercial use requires a separate written commercial license agreement. To request one, contact **river@riverman.io**.
