@@ -73,8 +73,7 @@ This parent repo defines the shared architecture, schemas, and service boundarie
 
 ## Existing Workstream
 
-The semantic naming and DNS/DHCP control-plane work lives in
-[`/Users/butterbones/semantic-dns`](/Users/butterbones/semantic-dns).
+The semantic naming and DNS/DHCP control-plane work lives at https://github.com/eris-securitas/semantic-dns
 
 That repository covers much of the semantic registry foundation:
 
